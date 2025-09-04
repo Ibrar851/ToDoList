@@ -1,28 +1,24 @@
 import React, { useState } from "react";
 import { updateTask, deleteTask } from "../services/api";
 
-const TaskItem = ({ task, onTaskUpdated, onTaskDeleted }) => {
-  const [isEditing, setIsEditing] = useState(false);
+const TaskItem = ({ task, isEditing, setEditingTaskId, onTaskUpdated, onTaskDeleted }) => {
   const [title, setTitle] = useState(task.title);
 
-  // ✅ Save updated task
   const handleUpdate = async () => {
     try {
       const { data } = await updateTask(task._id, { title });
       onTaskUpdated(data);
-      setIsEditing(false);
     } catch (err) {
-      console.error("❌ Error updating task:", err.message);
+      console.error("Error updating task:", err.message);
     }
   };
 
-  // ✅ Delete task
   const handleDelete = async () => {
     try {
       await deleteTask(task._id);
       onTaskDeleted(task._id);
     } catch (err) {
-      console.error("❌ Error deleting task:", err.message);
+      console.error("Error deleting task:", err.message);
     }
   };
 
@@ -39,14 +35,14 @@ const TaskItem = ({ task, onTaskUpdated, onTaskDeleted }) => {
           <button onClick={handleUpdate} style={{ background: "green", marginLeft: "8px" }}>
             ✅ Save
           </button>
-          <button onClick={() => setIsEditing(false)} style={{ background: "gray", marginLeft: "5px" }}>
-            ❌ Cancel
+          <button onClick={() => setEditingTaskId(null)} style={{ background: "gray", marginLeft: "5px" }}>
+            Cancel
           </button>
         </>
       ) : (
         <>
           <span>{task.title}</span>
-          <button onClick={() => setIsEditing(true)} style={{ background: "#007bff", marginRight: "5px" }}>
+          <button onClick={() => setEditingTaskId(task._id)} style={{ background: "#007bff", marginRight: "5px" }}>
             ✏ Edit
           </button>
           <button onClick={handleDelete}>🗑 Delete</button>

@@ -10,11 +10,10 @@ const TaskForm = ({ onTaskAdded }) => {
 
     try {
       const { data } = await createTask({ title });
-      console.log("✅ Task created:", data);
-      setTitle(""); // clear input
-      onTaskAdded(data); // update parent state
+      onTaskAdded(data);   // ✅ parent ko new task bhej do
+      setTitle("");
     } catch (err) {
-      console.error("❌ Error creating task:", err.message);
+      console.error(" Error creating task:", err.message);
     }
   };
 

@@ -6,7 +6,7 @@ export const getTasks = async (req, res) => {
     const tasks = await Task.find();
     res.json(tasks);
   } catch (error) {
-    console.error("❌ Error fetching tasks:", error.message);
+    console.error(" Error fetching tasks:", error.message);
     res.status(500).json({ message: "Error fetching tasks" });
   }
 };
@@ -19,7 +19,7 @@ export const addTask = async (req, res) => {
     await task.save();
     res.status(201).json(task);
   } catch (error) {
-    console.error("❌ Error adding task:", error.message);
+    console.error(" Error adding task:", error.message);
     res.status(400).json({ message: "Error adding task" });
   }
 };
@@ -39,7 +39,7 @@ export const updateTask = async (req, res) => {
 
     res.json(updatedTask);
   } catch (error) {
-    console.error("❌ Error updating task:", error.message);
+    console.error(" Error updating task:", error.message);
     res.status(400).json({ message: "Error updating task" });
   }
 };
@@ -55,7 +55,7 @@ export const deleteTask = async (req, res) => {
 
     res.json({ message: "Task deleted" });
   } catch (error) {
-    console.error("❌ Error deleting task:", error.message);
+    console.error(" Error deleting task:", error.message);
     res.status(400).json({ message: "Error deleting task" });
   }
 };
