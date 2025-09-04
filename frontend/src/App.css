@@ -1,0 +1,94 @@
+/* Background gradient */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Card */
+.todo-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 500px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.30);
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form */
+form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+form input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+form button {
+  margin-left: 10px;
+  padding: 10px 14px;
+  background: #7c4dff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #651fff;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+li span {
+  flex: 1;
+  text-align: left;
+}
+
+li button {
+  padding: 6px 10px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+li button:hover {
+  background: #e60000;
+}
